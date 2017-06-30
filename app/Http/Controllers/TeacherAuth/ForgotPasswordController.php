@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\StudentAuth;
+namespace App\Http\Controllers\TeacherAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
-    protected $broker = 'students';
+    protected $broker = 'teachers';
     use SendsPasswordResetEmails;
     public function showLinkRequestForm()
     {
-        return view('student.passwords.email');
+        return view('teacher.passwords.email');
     }
     public function broker()
     {
-            return Password::broker('students');
+            return Password::broker('teachers');
     }
 }

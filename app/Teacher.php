@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 //Notification for Seller
-use App\Notifications\StudentResetPasswordNotification;
+use App\Notifications\TeacherResetPasswordNotification;
 
-class Student extends Authenticatable
+class Teacher extends Authenticatable
 {
+    protected $table = 'teacher';
     use Notifiable;
 
     //Mass assignable attributes
@@ -27,6 +28,6 @@ class Student extends Authenticatable
     //Send password reset notification
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new StudentResetPasswordNotification($token));
+        $this->notify(new TeacherResetPasswordNotification($token));
     }
 }

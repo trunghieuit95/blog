@@ -18,6 +18,11 @@ Route::get('student/reset', 'StudentAuth\ForgotPasswordController@showLinkReques
 Route::post('student/email', 'StudentAuth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('student/reset/{token}', 'StudentAuth\ResetPasswordController@showResetForm');
 Route::post('student/reset', 'StudentAuth\ResetPasswordController@reset');
+//Teacher
+Route::get('teacher/reset', 'TeacherAuth\ForgotPasswordController@showLinkRequestForm');
+Route::post('teacher/email', 'TeacherAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('teacher/reset/{token}', 'TeacherAuth\ResetPasswordController@showResetForm');
+Route::post('teacher/reset', 'TeacherAuth\ResetPasswordController@reset');
 
 Auth::routes();
 

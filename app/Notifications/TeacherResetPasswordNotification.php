@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class StudentResetPasswordNotification extends Notification
+class TeacherResetPasswordNotification extends Notification
 {
     use Queueable;
 
@@ -42,8 +42,8 @@ class StudentResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Đặt lại mật khẩu của bạn')
-            ->action('Đặt lại mật khẩu', url('student/reset', $this->token))
+            ->line('Đặt lại mật khẩu cho teacher')
+            ->action('Đặt lại mật khẩu', url('teacher/reset', $this->token))
             ->line('If you did not request a password reset, no further action is required.');
     }
 }

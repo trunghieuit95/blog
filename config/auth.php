@@ -45,9 +45,13 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-        'student' => [
+        'students' => [
             'driver' => 'session',
-            'provider' => 'students',
+            'provider' => 'student',
+        ],
+        'teachers' => [
+            'driver' => 'session',
+            'provider' => 'teacher',
         ],
     ],
 
@@ -73,11 +77,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
          'student' => [
              'driver' => 'eloquent',
              'model' => App\Student::class,
          ],
+        'teacher' => [
+            'driver' => 'eloquent',
+            'model' => App\Teacher::class,
+        ],
     ],
 
     /*
@@ -106,6 +117,14 @@ return [
             'provider' => 'student',
             //table to store password reset tokens for seller
             'table' => 'seller_password_resets',
+            //expire time for these tokens in minutes
+            'expire' => 60,
+        ],
+        'teachers' => [
+            //user provider for seller
+            'provider' => 'teacher',
+            //table to store password reset tokens for seller
+            'table' => 'teacher_password_resets',
             //expire time for these tokens in minutes
             'expire' => 60,
         ],
